@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="GameClasses">
+      <UniqueIdentifier>{2D7E9D67-9933-165D-2228-10348EDC0C61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{7d47ed07-00d8-41f4-9f6d-ca85d45083cb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\GameClasses\Level.h">
+      <Filter>GameClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameClasses\Obstacle.h">
+      <Filter>GameClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameClasses\Player.h">
+      <Filter>GameClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameClasses\Object.h">
+      <Filter>GameClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameClasses\Spawner.h">
+      <Filter>GameClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameClasses\Game.h">
+      <Filter>GameClasses</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\GameClasses\Level.cpp">
+      <Filter>GameClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameClasses\Obstacle.cpp">
+      <Filter>GameClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameClasses\Player.cpp">
+      <Filter>GameClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\GameClasses\Object.cpp">
+      <Filter>GameClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameClasses\Spawner.cpp">
+      <Filter>GameClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameClasses\Game.cpp">
+      <Filter>GameClasses</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\shaders\Standard.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="bin\Debug\data\shaders\Standard.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="bin\Debug\data\shaders\Obstacle.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="bin\Debug\data\shaders\Obstacle.vert">
+      <Filter>Shaders</Filter>
+    </None>
+  </ItemGroup>
+</Project>
