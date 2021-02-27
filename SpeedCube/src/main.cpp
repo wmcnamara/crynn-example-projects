@@ -10,7 +10,7 @@ using namespace SpeedCube;
 
 int main()
 {
-	Window window("SpeedCube", 1920, 1080);	
+	Window window("SpeedCube", 800, 600);	
 	Player player;	
 	Level level;
 	Game game;
