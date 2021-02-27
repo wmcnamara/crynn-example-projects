@@ -1,5 +1,8 @@
-**Dodge the blocks!**
+<h1 align="center">SpeedCube</h1>
 
+<h3 align="center">Dodge the blocks!</h3>
+
+# Information
 ![Speedcube example image](https://i.imgur.com/QhGu3YV.png)
 
 This project showcases texture mapping, shading, collision, and movement. The game runs in 800x600 resolution.
