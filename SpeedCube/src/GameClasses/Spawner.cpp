@@ -73,8 +73,15 @@ namespace SpeedCube
 
 #ifndef DISABLE_COLLISION
 	    //Test collisions against the player on spawned objects
-	    for (auto& [ID, obstacle] : Scene::GetManagedObjects())
-	   	AABBSolver::Compare(m_player->GetBoundingBox(), dynamic_cast<const Obstacle&>(*obstacle).GetBoundingBox(), &Game::Over);		
+	    for (auto& [ID, obstacle] : Scene::GetManagedObjects()) 
+		{
+			if(AABB::Compare(m_player->GetBoundingBox(), dynamic_cast<const Obstacle&>(*obstacle).GetBoundingBox())) 
+			{
+				Game::Over();
+				break;
+			}
+
+		}
 #endif
 		static double timer = spawnRate;
 		timer -= deltaTime;
