@@ -10,21 +10,13 @@ using namespace SpeedCube;
 
 int main()
 {
-	Window window("SpeedCube", 800, 600);	
-	Player player;	
+	Engine engine = Engine(800, 600, "SpeedCube");
+
+	//Init stuff
+	Player player;
 	Level level;
 	Game game;
 	Spawner spawner(&player);
-
-	Application::Initialise(); 	
-	glClearColor(1.0, 1.0, 0.0, 1.0);
-
-	while (!window.ShouldClose())
-	{
-		window.BeforeRender();
-		Application::Tick();
-		window.AfterRender();
-
-		Scene::Clean();
-	}
+	
+	engine.Run();
 }
