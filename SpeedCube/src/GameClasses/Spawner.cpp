@@ -3,17 +3,25 @@ namespace SpeedCube
 {
 	Spawner::Spawner(Player* player) : m_player(player), GuiWindow(ImVec2(300, 200), ImVec2(300, 300), "Spawner Configuration")
 	{
-		obstacleMesh = new Mesh(m_vertices, 180, NULL, 0, false);
+		std::future<STLDataPtr> modelFuture = std::async(std::launch::async, STLParser::Load, "data/models/amongus.stl");
+
 		obstacleShader = new Shader("data/shaders/Obstacle.vert", "data/shaders/Obstacle.frag");
-		obstacleTexture = new Texture("data/assets/perlinnoise.jpg");
+		obstacleTexture = new Texture("data/assets/amongus.jpg");
+
+		STLDataPtr stlData = modelFuture.get();
+
+		std::vector<GLfloat> vertices = std::move(stlData->ComputeGLFormat());
+
+		obstacleMesh = new Mesh(vertices.data(), vertices.size(), nullptr, 0, VertexAttribNormVec);
+
 		Spawn();
 	}
 
 	Spawner::~Spawner()
 	{
+		delete obstacleTexture;
 		delete obstacleMesh;
 		delete obstacleShader;
-		delete obstacleTexture;
 	}
 
 	void Spawner::Spawn()
@@ -21,7 +29,7 @@ namespace SpeedCube
 		if (!shouldSpawn || Game::IsOver())
 			return;
 
-		ScopedTimer timer("Spawning", TimeFormat::Microseconds);
+		ScopedTimer timer("Spawning");
 
 		//Remove old objects every other spawn
 		static bool deleteOldObj = false;
@@ -40,7 +48,7 @@ namespace SpeedCube
 			//Set position
 			//The player moves 2 units when changing lanes, so multiplying it by the lane index gives proper direction
 			//Spawn objects at a distance in front the player
-			obstacle->SetPosition(glm::vec3(lane * 2, 0, m_player->GetPosition().z + spawnDistFromPlayer));
+			obstacle->SetPosition(Vec3(lane * 2, 0, m_player->GetPosition().z + spawnDistFromPlayer));
 
 			std::cout << "Spawning Object with ID: " << obstacle->GetID() << "\n";
 		}
@@ -71,6 +79,8 @@ namespace SpeedCube
 			return;
 		}
 
+
+	
 #ifndef DISABLE_COLLISION
 	    //Test collisions against the player on spawned objects
 	    for (auto& [ID, obstacle] : Scene::GetManagedObjects()) 

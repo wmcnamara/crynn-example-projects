@@ -20,13 +20,13 @@ namespace SpeedCube
 	private:
 		void Update(double deltaTime) override;
 		float movementSpeed = 12.0f;
-		AABB boundingBox{ *this, vec3(1, 1, 1) };
+		AABB boundingBox{ *this, Vec3(1, 1, 1) };
 
 		Mesh* m_mesh;
 		Shader* m_shader;
 		Texture* m_texture;
 		std::unique_ptr<MeshRenderer> m_renderer;
 
-		float timeToDestruction = 2.0f;
+		double timeToDestruction = 2.0f;
 	};
 }

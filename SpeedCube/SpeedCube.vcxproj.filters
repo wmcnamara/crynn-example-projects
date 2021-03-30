@@ -62,5 +62,11 @@
     <None Include="bin\Debug\data\shaders\Obstacle.vert">
       <Filter>Shaders</Filter>
     </None>
+    <None Include="bin\Debug\data\shaders\Skybox.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="bin\Debug\data\shaders\Skybox.vert">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

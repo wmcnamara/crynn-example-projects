@@ -14,10 +14,10 @@ namespace SpeedCube
 	{
 		if (!Game::IsOver())
 		{
-			Translate(vec3(0, 0, deltaTime * movementSpeed));
+			Translate(Vec3(0, 0, deltaTime * movementSpeed));
 
 			timeToDestruction -= deltaTime;
-			if (timeToDestruction <= 0)
+			if (timeToDestruction <= 0.0f)
 			{
 				Scene::RemoveObject(GetID());
 				timeToDestruction = 2.0f;
